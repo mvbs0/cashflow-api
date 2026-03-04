@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Service
-public class SalesService {
+public class SaleService {
     public Sale createSale(BigDecimal grossAmount, PaymentMethod method) {
         Sale sale = new Sale();
         sale.setDate(LocalDate.now());
@@ -19,7 +19,7 @@ public class SalesService {
         BigDecimal netAmount = grossAmount.subtract(feeAmount);
 
         sale.setFeeRate(feeRate);
-        sale.setMethod(method);
+        sale.setFeeAmount(feeAmount);
         sale.setNetAmount(netAmount);
 
         return sale;
