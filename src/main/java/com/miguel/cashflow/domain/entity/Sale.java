@@ -11,23 +11,27 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Sale {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false)
-    private LocalDate date;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod method;
-    @Column(nullable = false, precision = 12, scale = 2)
-    private BigDecimal grossAmount;
-    @Column(precision = 5, scale = 2)
-    private BigDecimal feeRate;
-    @Column(nullable = false, precision = 12, scale = 2)
-    private BigDecimal feeAmount;
-    @Column(nullable = false, precision = 12, scale = 2)
-    private BigDecimal netAmount;
-    public Sale() {
-    }
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+
+        @Column(nullable = false)
+        private LocalDate date;
+
+        @Enumerated(EnumType.STRING)
+        @Column(nullable = false)
+        private PaymentMethod method;
+
+        @Column(nullable = false)
+        private BigDecimal grossAmount;
+
+        @Column(nullable = false)
+        private BigDecimal feeRate;
+
+        @Column(nullable = false)
+        private BigDecimal feeAmount;
+
+        @Column(nullable = false)
+        private BigDecimal netAmount;
 
 }
