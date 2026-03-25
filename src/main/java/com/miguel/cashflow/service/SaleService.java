@@ -16,12 +16,13 @@ public class SaleService {
     }
 
     public Sale createSale(BigDecimal grossAmount, PaymentMethod method) {
+        PaymentMethod currentMethod = PaymentMethod.fromCodigo(method.name());
         Sale sale = new Sale();
         sale.setDate(LocalDate.now());
-        sale.setMethod(method);
+        sale.setMethod(currentMethod);
         sale.setGrossAmount(grossAmount);
 
-        BigDecimal feeRate = method.getFeeRate();
+        BigDecimal feeRate = currentMethod.GetFee();
         BigDecimal feeAmount = grossAmount.multiply(feeRate);
         BigDecimal netAmount = grossAmount.subtract(feeAmount);
 
