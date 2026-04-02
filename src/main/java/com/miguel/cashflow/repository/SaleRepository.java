@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface SaleRepository extends JpaRepository<Sale, Long> {
     List<Sale> findByDateBetween(LocalDate start, LocalDate end);
-
 }
